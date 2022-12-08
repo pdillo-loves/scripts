@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# script to execute arandr when an external monitor is plugged in
+
+# check if HDMI is connected
+hdmi_state=$(xrandr | grep "HDMI" | awk '{print $2}')
+
+if [ $hdmi_state == "connected" ]; then
+    arandr
+fi
